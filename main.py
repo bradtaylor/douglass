@@ -19,12 +19,12 @@ async def perform_conversion(notebook_json):
 app = Sanic('douglass')
 
 
-@app.route('/', methods=['GET'])
-async def status_response(request):
+@app.get('/')
+async def status(request):
     return response.text('OK')
 
 
-@app.route('/api/convert', methods=['POST'])
+@app.post('/api/convert')
 async def convert(request):
     return response.html(await perform_conversion(request.json))
 
