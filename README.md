@@ -13,6 +13,7 @@ There are two routes:
 /status is a health-check endpoint. It accepts GET requests and returns 200 'OK'.
 
 /api/convert is the primary conversion endpoint. It accepts POST requests containing notebook JSON and returns HTML for displaying the notebook's content in the browser.
+This endpoint is authorized via Terra's SAM authorization service. Calls therefore require an auth header supplying a Terra Oauth2 bearer token.
 (Note: I would prefer to include a version in the convert endpoint. Calhoun does not, so I am keeping the endpoint un-versioned for the sake of similarity.)
 
 ### Framework.
