@@ -5,6 +5,7 @@ from utils import perform_notebook_conversion, authorized
 
 # Webservice routing
 app = Sanic('douglass')
+app.config.from_pyfile('config.py')
 
 
 @app.get('/')
@@ -13,10 +14,10 @@ async def status(request):
 
 
 @app.post('/api/convert')
-@authorized()
+@authorized(app.config.SAM_ROOT)
 async def convert(request):
     return response.html(await perform_notebook_conversion(request.json))
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+    app.run(port=8000)

@@ -31,3 +31,22 @@ There is an argument to be made that the client application should interpret not
 
 As an additional primary aim, this served as a well-defined personal project. Small, well-scoped, and isolated. A great opportunity to write a simple API server entirely in Python.
 
+### Developing
+Install dependencies
+
+```sh
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+```
+
+
+Write a config file
+```sh
+cp config.prod.json config.json
+```
+
+Run a local server
+```sh
+python3 main.py
+```
